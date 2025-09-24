@@ -1,4 +1,5 @@
-Site-to-Site VPN Connection Setup on Azure
+<title>Site-to-Site VPN Connection Setup on Azure</title>
+
 📌 Overview
 
 This project demonstrates how to set up a Site-to-Site (S2S) VPN between an on-premises environment and Azure.
@@ -69,8 +70,7 @@ Connection 1: onpremvnet → hubvnet
 
 Connection 2: hubvnet → onpremvnet
 
------------------------------------------------------------------- x x x x x x x ------------------------------------------------------------------------------------------------------------
-
+------------------------------------------------------------------ x x x x x x x ------------------------------------------------------
 ⚙️ Setup Steps
 
 Step 1: Create Resource Groups
