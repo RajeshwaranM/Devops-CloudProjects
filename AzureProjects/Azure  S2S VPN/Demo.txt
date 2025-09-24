@@ -1,4 +1,4 @@
-## Site-to-Site VPN Connection Setup on Azure
+Site-to-Site VPN Connection Setup on Azure
 
 📌 Overview
 
