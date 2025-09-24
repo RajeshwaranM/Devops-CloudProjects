@@ -69,7 +69,10 @@ Connection 1: onpremvnet → hubvnet
 
 Connection 2: hubvnet → onpremvnet
 
+------------------------------------------------------------------ x x x x x x x ------------------------------------------------------------------------------------------------------------
+
 ⚙️ Setup Steps
+
 Step 1: Create Resource Groups
 
 Create separate resource groups for hub, spoke, and on-prem VNets.
