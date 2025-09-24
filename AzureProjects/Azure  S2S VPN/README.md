@@ -78,15 +78,15 @@ Step 1: Create Resource Groups
 
 Create separate resource groups for hub, spoke, and on-prem VNets.
 
-![alt text](image.png)
+![alt text](Images/image.png)
 
 Step 2: Create VNets
 
-Create 3 VNets (hub, spoke, on-prem) within the respective resource groups.
+Create three VNets (hub, spoke, on-prem) within the respective resource groups.
 
-![alt text](image-1.png)
+![alt text](Images/image-1.png)
 
-![alt text](image-2.png)
+![alt text](Images/image-2.png)
 
 Step 3: Create Virtual Network Gateways
 
@@ -97,7 +97,7 @@ SKU: VPNGW1 (for lab/demo).
 
 Disable active-active mode.
 
-![alt text](image-3.png)
+![alt text](Images/image-3.png)
 
 Step 4: Create Local Network Gateways
 
@@ -107,11 +107,11 @@ We have created the on-prem virtual network gateway on the on-prem VNet, so you 
 
 In the address space field, I used the full range of the hub/spoke network, so I entered 10.0.0.0/8. You can also enter specific hub network address range, such as 10.100.0.0/16.
 
-![alt text](image-4.png)
+![alt text](Images/image-4.png)
 
 For the Sake of the lab, leave the BGP setting as it is
 
-![alt text](image-5.png)
+![alt text](Images/image-5.png)
 
 Please, repeat the same step for the Hub Network as well.
 
@@ -121,17 +121,17 @@ Create a connection profile between the on-prem network and the Azure hub networ
 
 Need to establish the connection from the hub to the on-prem network, as shown in the screenshot below. Repeat the same step for on-prem to hub.
 
-![alt text](image-6.png)
+![alt text](Images/image-6.png)
 
-![alt text](image-7.png)
+![alt text](Images/image-7.png)
 
 Please keep in mind that when you create a connection between the on-prem network and the hub, you need to set a shared key. Just enter a combination of letters and numbers. You’ll also need to use the same value when creating the connection on the other side.
 
 As you can see in the screenshot below, the connection has been successfully established between both networks.
 
-![alt text](image-8.png)
+![alt text](Images/image-8.png)
 
-![alt text](image-9.png)
+![alt text](Images/image-9.png)
 
 s2s vpn connection check
 
@@ -149,7 +149,7 @@ Subscription: Select the subscription.
 Virtual Network: select the spoke VNet from the dropdown
 The peering connection should be configured as shown in the screenshot below
 
-![alt text](image-10.png)
+![alt text](Images/image-10.png)
 
 ✅ Validation
 
@@ -161,31 +161,31 @@ Verify bidirectional traffic flow.
 
 Create a Windows Jump Host in the spoke VNet. Also, please keep in mind that, by default, Azure blocks ICMP traffic, so we need to add inbound and outbound rules to the Windows Jump Host to allow ICMP. Please refer to the NSG rule below.
 
-![alt text](image-11.png)
+![alt text](Images/image-11.png)
 
 One more thing: the Windows machine firewall also blocks ICMP traffic, so you need to enable the following rule in Windows Firewall: File and Printer Sharing (Echo Request - ICMPv4-In).
 
 Also, add the remote IP address range to the scope, as shown in the screenshot below. I spent 3 days finding these settings. 🙂
 
-![alt text](image-12.png)
+![alt text](Images/image-12.png)
 
-![alt text](image-13.png)
+![alt text](Images/image-13.png)
 
 Open Windows PowerShell on the Jump Host and try the tnc command to check the RDP connection to the remote network as shown in the screenshot below.
 
-![alt text](image-14.png)
+![alt text](Images/image-14.png)
 
 Create a Windows machine in the spoke VNet. As you may already know, by default, Azure blocks ICMP traffic, so we need to add inbound and outbound rules to the Windows VM to allow ICMP. Please refer to the NSG rule below.
 
-![alt text](image-15.png)
+![alt text](Images/image-15.png)
 
 Here, we also need to modify Windows firewall settings as we did before enabling the File and Printer Sharing (Echo Request - ICMPv4-In) rule.
 
-![alt text](image-16.png)
+![alt text](Images/image-16.png)
 
 Open Windows PowerShell on the Windows VM and try the tnc command to check the RDP connection to the remote network, as shown in the screenshot below.
 
-![alt text](image-17.png)
+![alt text](Images/image-17.png)
 
 I referred to the following Microsoft document to complete this setup. It took me a long time to figure things out—even though I had Microsoft documentation for reference, I was scratching my head trying to figure out the NSG rule and Windows Firewall. Eventually, I managed to resolve it.
 
